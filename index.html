@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz Challenge</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <a href="./highscores.html"><button>View Highscores</button></a>
+    <div id="container">
+        <div id="start">Start!</div>
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+            </div>
+    <div id="timer">
+        <div id="counter"></div>
+
+    </div>
+    <div id="scorecontainer" style = "display: none;"></div>
+    <script src="./assets/script.js">
+    </script>
+</body>
+</html>
