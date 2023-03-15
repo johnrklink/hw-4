@@ -10,8 +10,14 @@
 <body>
     <a href="./highscores.html"><button>View Highscores</button></a>
     <div id="container">
-        <div id="start">Start!</div>
-        <div id="quiz" style="display: none">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind that incorrect answers will penalize your
+          score/time by 15 seconds!
+        </p>
+        <button id="start-quiz-btn" class="btn btn-primary btn-lg">Start Quiz</button>
+        <div id="quiz" style="display: hide">
             <div id="question"></div>
             <div id="choices">
                 <div class="choice" id="A" onclick="checkAnswer('A')"></div>
@@ -19,8 +25,10 @@
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
                 <div class="choice" id="D" onclick="checkAnswer('D')"></div>
             </div>
-    <div id="timer">
+    
         <div id="counter"></div>
+
+        <div id="time">100</div>
 
     </div>
     <div id="scorecontainer" style = "display: none;"></div>

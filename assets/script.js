@@ -1,14 +1,16 @@
-const start = document.getElementById("start");
-const quiz = document.getElementById("quiz");
-const question = document.getElementById("question")
-const choiceA = document.getElementById("A");
-const choiceB = document.getElementById("B");
-const choiceC = document.getElementById("C");
-const choiceD = document.getElementById("D");
-const counter = document.getElementById("counter");
-const scoreDiv = document.getElementById("scoreContainer");
+var start = document.getElementById("start");
+var quiz = document.getElementById("quiz");
+var question = document.getElementById("question")
+var choiceA = document.getElementById("A");
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var choiceD = document.getElementById("D");
+var counter = document.getElementById("counter");
+var scoreDiv = document.getElementById("scoreContainer");
+var container = document.getElementById("container")
+var timer = document.getElementById("timer")
 
-let questions = [
+var questions = [
     {
         question : "Commonly used data types DO NOT include:",
         choiceA : "strings",
@@ -61,34 +63,42 @@ function renderQuestion(){
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
-    choiceC.innerHTML = q.choiceD;
+    choiceD.innerHTML = q.choiceD;
 }
-function checkAnswer(answer){
-    if (questions[runningQuestionIndex].correct == answer){
-        timer-counter
+function checkAnswer(answer) {
+    if (answer === questions[runningQuestionIndex].correctAnswer) {
+      
+    } else {
+      
+      timeLeft -= 10; // subtract 10 seconds from the timer
+      if (timeLeft < 0) {
+        timeLeft = 0;
+      }
     }
-    if (runningQuestionIndex < lastQuestionIndex){
-        count =0;
-        runningQuestionIndex++;
-        questionRender();
-    }
-    else{
-        clearInterval(TIMER);
-        scoreRender();
-    }
-}
-
+  
+    
+  }
 
 start.addEventListener("click",startQuiz); 
+   
+function startQuiz(duration, display) {
+    var timer = duration, seconds;
+    setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-let TIMER;
+        display.textContent = seconds;
 
-function startQuiz(){
-    start.style.display = "none";
-    counterRender()
-    TIMER = setInterval(counterRender,1000);
-    progressRender();
-    questionRender();
-    quiz.style.display = "block";
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
 }
-    
+
+window.onload = function () {
+    var hundredSeconds = 100,
+        display = document.querySelector('#time');
+    startTimer(hundredSeconds, display);
+};
+
+localStorage.setItem("userScore", timeLeft);
